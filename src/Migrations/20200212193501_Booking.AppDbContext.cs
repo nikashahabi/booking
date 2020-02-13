@@ -52,7 +52,7 @@ namespace booking.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     StartTime = table.Column<DateTime>(nullable: false),
                     EndTime = table.Column<DateTime>(nullable: false),
-                    Summary = table.Column<string>(nullable: false),
+                    Summary = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
                     Price = table.Column<int>(nullable: false),
                     SalonId = table.Column<int>(nullable: false)

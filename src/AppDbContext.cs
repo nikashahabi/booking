@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Booking.Models;
+using booking.Models;
 
-namespace Booking
+namespace booking
 {
     public class AppDbContext : DbContext
     {
@@ -23,11 +23,11 @@ namespace Booking
             builder.Entity<Show>().HasKey(p => p.Id);
             builder.Entity<Show>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             // builder.Entity<Show>().Property(p => p.Title).IsRequired().HasMaxLength(30);
-            builder.Entity<Show>().Property(p => p.StartTime).IsRequired();
-            builder.Entity<Show>().Property(p => p.EndTime).IsRequired();
-            builder.Entity<Show>().Property(p => p.Summary).IsRequired();
-            builder.Entity<Show>().Property(p => p.Price).IsRequired();
-            builder.Entity<Show>().Property(p => p.SalonId).IsRequired();
+            builder.Entity<Show>().Property(p => p.StartTime);
+            builder.Entity<Show>().Property(p => p.EndTime);
+            builder.Entity<Show>().Property(p => p.Summary);
+            builder.Entity<Show>().Property(p => p.Price);
+            builder.Entity<Show>().Property(p => p.SalonId);
            
            
             builder.Entity<Seat>().ToTable("seat");

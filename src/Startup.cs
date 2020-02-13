@@ -9,9 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using booking.Services;
 
-
-namespace Booking
+namespace booking
 {
     public class Startup
     {
@@ -25,9 +25,10 @@ namespace Booking
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(opts =>
-                opts.UseNpgsql(Configuration["ConnectionStrings:Booking"]));
-
+            services.AddDbContext<AppDbContext>(opts =>{
+                opts.UseNpgsql("Host=localhost;Database=bookingdatabase;Username=postgres;Password='postgres'");
+            });
+            services.AddScoped <BookingService> ();
             services.AddControllers();
         }
 
